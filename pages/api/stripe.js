@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.NEXT_PUBLIC_SECRET_KEY);
+const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export default async function handler(req, res){
     if (req.method === 'POST'){
@@ -11,8 +11,6 @@ export default async function handler(req, res){
                 payment_method_types: ['card'],
                 billing_address_collection: 'auto',
                 shipping_options: [
-
-                  { shipping_rate: 'shr_1Lw94aD6dCpgiDMnbINi2BHI' },
                   { shipping_rate: 'shr_1Lw97ZD6dCpgiDMne6womYW8' },
                 ],
                 line_items: req.body.map((item) => {
