@@ -9,7 +9,7 @@ import getStripe from '../lib/getStripe';
 
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
+  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove } = useStateContext();
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
@@ -64,10 +64,10 @@ const Cart = () => {
               <div className="flex bottom">
                 <div>
                 <p className="quantity-desc">
-                <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec') }><AiOutlineMinus />
+                <span className="minus" onClick={() => toggleCartItemQuantity(item._id, 'dec') }><AiOutlineMinus />
                     </span>
                     <span className="num">{item.quantity}</span>
-                    <span className="plus" onClick={() => toggleCartItemQuanitity(item._id, 'inc') }><AiOutlinePlus /></span>
+                    <span className="plus" onClick={() => toggleCartItemQuantity(item._id, 'inc') }><AiOutlinePlus /></span>
                 </p>
                   </div>
 
